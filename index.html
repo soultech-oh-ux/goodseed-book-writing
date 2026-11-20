@@ -8,6 +8,13 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="생각과 아이디어만 있으면, 한 권의 책이 됩니다 | 굿씨드 책쓰기 8주 과정" />
 <meta property="og:description" content="아이디어에서 출판까지, 종이책을 손에 받는 전 과정 8주 · 하루 2시간 · 오경근 교수와 함께" />
+<meta property="og:url" content="https://goodseed-book-writing.vercel.app/" />
+<meta property="og:image" content="https://goodseed-book-writing.vercel.app/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://goodseed-book-writing.vercel.app/og-cover.png" />
+<link rel="icon" href="og-cover.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
@@ -56,10 +63,10 @@ header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdro
 .book{position:relative;width:320px;height:440px;border-radius:4px 10px 10px 4px;transform:rotate(-7deg);
   background:linear-gradient(90deg,#0a3d26 0 14px,#2b6a4a 15px 20px,#0f5132 20px 100%);
   box-shadow:24px 36px 46px rgba(10,40,30,.28),inset -9px 0 0 rgba(255,255,255,.06);
-  padding:42px 38px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;}
+  padding:40px 34px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;}
 .book:after{content:"";position:absolute;right:-10px;top:9px;bottom:7px;width:10px;background:repeating-linear-gradient(90deg,#efeee4,#efeee4 1px,#d4d3c8 2px);border-radius:0 5px 5px 0;transform:skewY(20deg);}
 .book small{font-family:var(--serif);letter-spacing:.22em;color:#cfe0d6;font-size:11px;}
-.book .bt{font-family:var(--serif);font-size:38px;line-height:1.45;font-weight:600;}
+.book .bt{font-family:var(--serif);font-size:clamp(19px,2.9vw,27px);line-height:1.4;font-weight:600;word-break:keep-all;overflow-wrap:break-word;}
 .book .rule{height:1px;width:72%;background:#cfe0d6;}
 .book .by{font-size:11px;letter-spacing:.14em;color:#cfe0d6;}
 .floatnote{position:absolute;right:-4px;bottom:34px;background:#fff;padding:18px 24px;box-shadow:0 12px 30px rgba(15,81,50,.18);border-radius:8px;text-align:center;}
