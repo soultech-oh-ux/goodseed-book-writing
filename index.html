@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>생각과 아이디어만 있으면, 한 권의 책이 됩니다 | 굿씨드 책쓰기 8주 과정</title>
+<meta name="description" content="내가 쓰고 싶은 책의 생각과 아이디어만 있으면 충분합니다. 집필·편집·출판까지, 종이책을 손에 받는 전 과정을 8주·하루 2시간 오경근 교수와 함께 만들어 갑니다." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="생각과 아이디어만 있으면, 한 권의 책이 됩니다 | 굿씨드 책쓰기 8주 과정" />
+<meta property="og:description" content="아이디어에서 출판까지, 종이책을 손에 받는 전 과정 8주 · 하루 2시간 · 오경근 교수와 함께" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --green:#0f5132; --green-d:#0a3d26; --green-l:#eaf2ed; --green-ll:#f4f8f5;
+  --ink:#1a1a1a; --sub:#5b655f; --line:#e6e3da; --cream:#faf8f3; --paper:#fff; --gold:#9a7b43;
+  --serif:"Noto Serif KR",serif; --sans:"Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;letter-spacing:-.02em;}
+a{color:inherit;text-decoration:none;}img{max-width:100%;display:block;}
+.wrap{width:min(1140px,calc(100% - 44px));margin:0 auto;}
+.serif{font-family:var(--serif);}
+.smallcap{color:var(--green);font-size:12px;letter-spacing:.2em;font-weight:800;}
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;font-weight:700;font-size:15px;padding:14px 24px;border-radius:6px;transition:.2s;border:1.5px solid transparent;white-space:nowrap;}
+.btn:hover{transform:translateY(-2px);}
+.btn.dark{background:var(--green);color:#fff;}.btn.dark:hover{background:var(--green-d);}
+.btn.outline{background:#fff;border-color:#c7d3cb;color:var(--green-d);}
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:11px;}
+.brandmark{width:40px;height:40px;border-radius:9px;background:var(--green);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:20px;}
+.brand b{display:block;line-height:1.15;font-size:18px;letter-spacing:.02em;}
+.brand small{display:block;color:var(--sub);font-size:9px;letter-spacing:.14em;}
+.navlinks{display:flex;gap:26px;font-size:14px;font-weight:600;color:#39433d;}
+.navlinks a:hover{color:var(--green);}
+.nav .btn{font-size:13px;padding:10px 16px;}
+@media(max-width:860px){.navlinks{display:none;}}
+/* hero */
+.hero{background:linear-gradient(103deg,var(--cream) 0 55%,var(--green-l) 55% 100%);overflow:hidden;}
+.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center;padding:86px 0 82px;}
+.subline{display:flex;gap:10px;align-items:center;color:var(--green);font-size:13px;font-weight:800;letter-spacing:.06em;}
+.subline:before{content:"";height:1px;width:34px;background:var(--green);}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,5.2vw,66px);line-height:1.26;margin:22px 0 20px;font-weight:700;}
+.hero h1 strong{color:var(--green);font-weight:700;}
+.hero p{font-size:17.5px;color:#44504a;max-width:560px;line-height:1.85;margin:0 0 30px;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px;}
+.hero-facts{margin-top:38px;border-top:1px solid #cdd8d0;padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 30px;font-weight:600;font-size:14px;color:#3b453f;}
+.hero-facts em{font-style:normal;color:var(--green);font-weight:800;}
+/* book visual */
+.book-area{position:relative;display:grid;place-items:center;min-height:500px;}
+.book-area:before{content:"";width:440px;height:440px;border:1px solid rgba(15,81,50,.2);border-radius:50%;position:absolute;top:3%;}
+.book{position:relative;width:320px;height:440px;border-radius:4px 10px 10px 4px;transform:rotate(-7deg);
+  background:linear-gradient(90deg,#0a3d26 0 14px,#2b6a4a 15px 20px,#0f5132 20px 100%);
+  box-shadow:24px 36px 46px rgba(10,40,30,.28),inset -9px 0 0 rgba(255,255,255,.06);
+  padding:42px 38px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;}
+.book:after{content:"";position:absolute;right:-10px;top:9px;bottom:7px;width:10px;background:repeating-linear-gradient(90deg,#efeee4,#efeee4 1px,#d4d3c8 2px);border-radius:0 5px 5px 0;transform:skewY(20deg);}
+.book small{font-family:var(--serif);letter-spacing:.22em;color:#cfe0d6;font-size:11px;}
+.book .bt{font-family:var(--serif);font-size:38px;line-height:1.45;font-weight:600;}
+.book .rule{height:1px;width:72%;background:#cfe0d6;}
+.book .by{font-size:11px;letter-spacing:.14em;color:#cfe0d6;}
+.floatnote{position:absolute;right:-4px;bottom:34px;background:#fff;padding:18px 24px;box-shadow:0 12px 30px rgba(15,81,50,.18);border-radius:8px;text-align:center;}
+.floatnote b{display:block;font-size:30px;line-height:1.1;color:var(--green);font-family:var(--serif);}
+.floatnote span{font-size:11px;color:#64766b;font-weight:700;}
+/* metric bar */
+.bar{background:var(--green);color:#fff;}
+.bar .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding:30px 0;gap:26px;}
+.metric{border-left:1px solid rgba(255,255,255,.22);padding-left:22px;}
+.metric:first-child{border:0;padding-left:0;}
+.metric b{display:block;font-size:25px;line-height:1.15;font-family:var(--serif);}
+.metric span{display:block;margin-top:6px;color:#cfe3d8;font-size:13px;}
+/* sections */
+.section{padding:92px 0;}
+.section h2{font-family:var(--serif);font-size:clamp(30px,3.6vw,46px);line-height:1.34;margin:10px 0 16px;font-weight:700;}
+.section-lead{font-size:16.5px;color:#4d5a53;max-width:740px;}
+.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
+.intro-card{border:1px solid var(--line);background:var(--green-ll);padding:30px 26px;border-radius:12px;min-height:220px;transition:.25s;}
+.intro-card:hover{border-color:var(--green);transform:translateY(-5px);}
+.intro-card .number{font:italic 600 26px var(--serif);color:var(--green);}
+.intro-card h3{font-family:var(--serif);font-size:23px;margin:20px 0 10px;}
+.intro-card p{font-size:14.5px;color:#505e57;}
+/* curriculum */
+.curriculum{background:var(--green-ll);}
+.weeklist{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:38px;}
+.week{display:flex;gap:20px;background:#fff;padding:24px 22px;border:1px solid var(--line);border-radius:10px;min-height:118px;transition:.2s;}
+.week:hover{border-color:var(--green);box-shadow:0 10px 26px -18px rgba(15,81,50,.4);}
+.wknum{font:italic 600 30px var(--serif);color:var(--green);flex-shrink:0;min-width:56px;}
+.week h3{font-family:var(--serif);font-size:19px;margin:0 0 7px;}
+.week p{font-size:13.5px;color:#56645c;margin:0;}
+.path{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:11px;background:#fff;padding:26px 14px;border:1px solid var(--line);border-radius:10px;margin-top:28px;font-size:14px;font-weight:800;color:var(--green-d);}
+.path i{color:var(--gold);font-style:normal;}
+.note{font-size:12.5px;color:#5d6a63;line-height:1.9;margin-top:16px;}
+/* fee */
+.fee-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start;margin-top:34px;}
+.fee-box{border:1px solid var(--line);background:#fff;padding:38px;border-radius:12px;}
+.fee-box h3{font-family:var(--serif);font-size:21px;margin:0 0 12px;}
+.price{font-size:48px;font-weight:900;line-height:1.2;color:var(--green-d);}
+.price small{font-size:15px;font-weight:650;}
+.fee-row{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid #eceae2;font-size:15px;}
+.fee-row:last-child{border:0;}
+.included{padding:19px 0 0;}
+.included b{display:block;margin-bottom:11px;}
+.included ul{margin:0;padding-left:18px;color:#3f5349;line-height:2.1;font-size:15px;}
+.sidebox{background:var(--green);color:#fff;padding:32px;border-radius:12px;}
+.sidebox h3{font-family:var(--serif);font-size:23px;margin:9px 0 13px;line-height:1.4;}
+.sidebox p{color:#d7e8de;margin:0;font-size:14.5px;}
+.info-rows{padding:24px 0 0;}
+.info-rows .fee-row b a{color:var(--green);text-decoration:underline;text-underline-offset:3px;}
+/* instructor */
+.instructor{background:var(--green-d);color:#fff;}
+.instructor .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+.instructor h2{margin-bottom:20px;color:#fff;}
+.instructor .staffrole{color:#cbb79a;font-size:17px;margin-bottom:14px;}
+.instructor p{color:#cdddd3;line-height:1.9;}
+.prof-qr{background:#fff;color:var(--ink);padding:28px 30px;border-radius:12px;}
+.prof-qr b{font-size:20px;display:block;line-height:1.5;font-family:var(--serif);}
+.prof-qr p{font-size:12.5px;color:#596660;margin:6px 0 12px;}
+.prof-links{display:flex;flex-direction:column;gap:6px;}
+.prof-links a{font-size:13px;text-decoration:underline;text-underline-offset:3px;color:var(--green-d);word-break:keep-all;}
+.profile-qrs{display:flex;gap:16px;justify-content:space-evenly;margin-top:18px;}
+.profile-qrs a{display:flex;flex-direction:column;gap:5px;align-items:center;text-align:center;}
+.profile-qrs img{width:120px;height:120px;}
+.profile-qrs small{font-size:11px;color:#4a5e56;font-weight:700;}
+/* enroll */
+.enroll{background:var(--cream);}
+.enrollpanel{border:1px solid #cdd8d0;background:#fff;padding:46px 52px;border-radius:14px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;}
+.enrollpanel h2{font-size:36px;margin:6px 0 16px;}
+.enrollpanel p{color:#5a675f;}
+.consult-phone{font-size:16px!important;font-weight:700;color:var(--green-d)!important;margin-top:12px;}
+.consult-phone a{color:var(--green-d);text-decoration:underline;text-underline-offset:3px;}
+.enrollctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.steps-visual{text-align:center;}
+.steps-visual .bigbook{width:200px;height:270px;margin:0 auto;border-radius:3px 8px 8px 3px;background:linear-gradient(90deg,#0a3d26 0 10px,#2b6a4a 11px 15px,#0f5132 15px 100%);box-shadow:16px 22px 34px rgba(10,40,30,.25);display:flex;align-items:center;justify-content:center;color:#cfe0d6;font-family:var(--serif);padding:24px;text-align:center;font-size:18px;line-height:1.6;}
+#share-message{font-size:12px;color:var(--green);margin-top:8px;}
+/* footer */
+footer{background:#0b3320;color:#bcd0c4;padding:30px 0;font-size:12.5px;}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+footer a{color:#e6efe8;text-decoration:underline;text-underline-offset:3px;}
+.footer-links{width:100%;font-size:13px;line-height:1.9;margin-top:4px;}
+.foot-note{display:block;width:100%;text-align:center;font-size:13px;font-weight:800;color:#eaf3ec;border-top:1px solid #2c5540;padding-top:10px;margin-top:6px;}
+@media(max-width:860px){
+  .hero{background:var(--cream);}.hero .wrap{grid-template-columns:1fr;padding:56px 0;}
+  .book-area{min-height:420px;order:-1;}
+  .bar .wrap{grid-template-columns:1fr 1fr;gap:20px;}
+  .intro-grid,.fee-grid,.instructor .wrap,.enrollpanel,.weeklist{grid-template-columns:1fr;}
+  .enrollpanel{padding:32px;}.section{padding:64px 0;}
+}
+/* edit mode */
+#ed-fab{position:fixed;right:18px;bottom:18px;z-index:70;background:var(--green);color:#fff;border:none;border-radius:30px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 5px 16px rgba(0,0,0,.25);}
+#ed-bar{position:fixed;right:18px;bottom:66px;z-index:70;display:none;flex-direction:column;gap:8px;}
+#ed-bar button{background:#fff;border:1px solid var(--green);color:var(--green-d);border-radius:9px;padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.14);}
+body.editing [contenteditable="true"]{outline:1.5px dashed var(--gold);background:#fffdf5;border-radius:4px;}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99;display:none;align-items:center;justify-content:center;}
+.modal .box{background:#fff;padding:26px 24px;border-radius:14px;width:290px;text-align:center;box-shadow:0 12px 44px rgba(0,0,0,.3);}
+.modal input{width:100%;padding:11px;margin:12px 0;border:1px solid #ccc;border-radius:8px;font-size:16px;text-align:center;}
+.modal button{background:var(--green);color:#fff;border:none;border-radius:8px;padding:10px 16px;cursor:pointer;font-weight:700;}
+.modal .cancel{background:#eee;color:#555;margin-left:8px;}
+@media print{#ed-fab,#ed-bar,.modal{display:none!important;}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a class="brand" data-noedit href="https://goodseed-publishing.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="굿씨드 출판사 홈페이지로 이동">
+    <span class="brandmark">G</span><span><b>GOODSEED</b><small>WRITE YOUR BOOK</small></span>
+  </a>
+  <nav class="navlinks" data-noedit aria-label="메뉴">
+    <a href="#about">프로그램 소개</a><a href="#curriculum">8주 과정</a><a href="#fee">교육비</a><a href="#instructor">강사 소개</a><a href="#apply">신청</a>
+  </nav>
+  <a class="btn dark" data-noedit href="https://open.kakao.com/o/g8X6BQZh" target="_blank" rel="noopener noreferrer">수강 상담</a>
+</div></header>
+
+<div id="editable-root">
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero"><div class="wrap">
+    <div>
+      <div class="subline">GOODSEED BOOK WRITING PROGRAM</div>
+      <h1>생각과 아이디어만 있으면,<br/><strong>한 권의 책</strong>이 됩니다.</h1>
+      <p>내가 쓰고 싶은 책에 대한 <b>생각과 아이디어</b>만 있으면 충분합니다. 책을 만들어 가는 과정과 글을 잘 쓸 수 있도록 함께 도우며, 나만의 책을 완성하고 출판까지 — <b>종이책을 손에 받는 전 과정</b>을 8주, 하루 2시간, 오경근 교수와 함께 만들어 갑니다.</p>
+      <div class="hero-ctas" data-noedit>
+        <a href="https://open.kakao.com/o/g8X6BQZh" target="_blank" rel="noopener noreferrer" class="btn dark">수강 상담 및 신청 문의 <span aria-hidden="true">↗</span></a>
+        <a href="#curriculum" class="btn outline">8주 과정 살펴보기</a>
+      </div>
+      <div class="hero-facts" data-noedit><span>하루 <em>2시간</em></span><span>총 <em>8주 과정</em></span><span><em>오경근 교수</em> 직접 지도</span><span><em>종이책</em> 출판까지</span></div>
+    </div>
+    <div class="book-area" aria-label="나의 책 표지 일러스트">
+      <div class="book"><small>GOODSEED PRESS</small><div><div class="rule"></div><div class="bt">세상에 하나뿐인<br/>나의 책</div><div class="rule"></div></div><span class="by">MY IDEA · MY BOOK · MY STORY</span></div>
+      <div class="floatnote"><b>8 WEEKS</b><span>아이디어부터 출판까지</span></div>
+    </div>
+  </div></section>
+
+  <!-- METRIC BAR -->
+  <div class="bar" data-noedit><div class="wrap">
+    <div class="metric"><b>8주</b><span>하루 2시간, 단계별 완성</span></div>
+    <div class="metric"><b>아이디어</b><span>생각만 있으면 시작</span></div>
+    <div class="metric"><b>출판까지</b><span>굿씨드 출판 · 교보문고 유통</span></div>
+    <div class="metric"><b>종이책</b><span>내 손에 받는 한 권</span></div>
+  </div></div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about"><div class="wrap">
+    <div class="smallcap">FROM IDEA TO A BOOK</div>
+    <h2>글솜씨가 아니라,<br/>쓰고 싶은 마음이면 충분합니다.</h2>
+    <p class="section-lead">좋은 책은 완벽한 문장에서 시작되지 않습니다. '이런 책을 쓰고 싶다'는 생각과 아이디어 한 조각이면 됩니다. 과정을 따라 한 장(章)씩 써 내려가면, 어느새 한 권의 책이 완성됩니다. 집필부터 편집·표지·출판까지, 혼자가 아니라 함께 만들어 갑니다.</p>
+    <div class="intro-grid">
+      <div class="intro-card"><div class="number">01</div><h3>아이디어를 꺼내다</h3><p>쓰고 싶은 책의 주제와 방향을 정리하고, 전체 구성을 설계합니다. 막연한 생각이 목차가 됩니다.</p></div>
+      <div class="intro-card"><div class="number">02</div><h3>나만의 플랫폼으로 쓰다</h3><p>나만의 집필 플랫폼 위에서 각 장별로 원고를 써 내려갑니다. AI의 도움으로 글이 더 잘 다듬어집니다.</p></div>
+      <div class="intro-card"><div class="number">03</div><h3>책으로 출판하다</h3><p>편집과 표지 디자인을 거쳐 굿씨드 출판사에서 출판하고, 종이책(POD)을 손에 받습니다.</p></div>
+    </div>
+  </div></section>
+
+  <!-- CURRICULUM -->
+  <section class="section curriculum" id="curriculum"><div class="wrap">
+    <div class="smallcap">8-WEEK BOOK WRITING CLASS</div>
+    <h2>8주, 아이디어가 한 권의 책이 되는 여정</h2>
+    <p class="section-lead">첫날 아이디어를 꺼내는 것으로 시작해, 매주 한 단계씩 집필하고 편집하여, 마지막 주에는 나의 책을 출판합니다.</p>
+    <div class="weeklist">
+      <div class="week"><span class="wknum">01</span><div><h3>아이디어 꺼내기 · 비전 공유</h3><p>내가 쓰고 싶은 책의 아이디어 적어내기 · 8주 과정 설명 · 함께 비전을 나누는 시간</p></div></div>
+      <div class="week"><span class="wknum">02</span><div><h3>책쓰기 1 · 나만의 플랫폼으로</h3><p>나만의 집필 플랫폼 세팅 · 목차에 따라 각 장별로 본격 집필 시작</p></div></div>
+      <div class="week"><span class="wknum">03</span><div><h3>책쓰기 2</h3><p>장별 원고 이어 쓰기 · 글의 흐름과 분량 잡기 · 막힌 부분 함께 풀기</p></div></div>
+      <div class="week"><span class="wknum">04</span><div><h3>책쓰기 3</h3><p>중반부 집필 · 내용 구체화와 사례·예시 보완 · 일관된 목소리 유지</p></div></div>
+      <div class="week"><span class="wknum">05</span><div><h3>책쓰기 4</h3><p>후반부 집필과 마무리 · 전체 원고 초고 완성</p></div></div>
+      <div class="week"><span class="wknum">06</span><div><h3>AI 다듬기 · 참고문헌 · 편집 1차</h3><p>AI로 문장 다듬기 · 참고문헌 정리 · 1차 편집으로 원고 정돈</p></div></div>
+      <div class="week"><span class="wknum">07</span><div><h3>편집 2차 · 표지 디자인</h3><p>2차 편집과 교정 · 책 제목 확정 · 표지 디자인 만들기</p></div></div>
+      <div class="week"><span class="wknum">08</span><div><h3>책 출판하기</h3><p>출판용 원고 완성 · ISBN 신청 · 굿씨드 출판과 교보문고 전자책·POD 등록</p></div></div>
+    </div>
+    <div class="path" data-noedit aria-label="책 출판 단계"><span>아이디어</span><i>→</i><span>집필(1~4)</span><i>→</i><span>AI 다듬기·편집</span><i>→</i><span>표지 디자인</span><i>→</i><span>굿씨드 출판</span><i>→</i><span>종이책</span></div>
+    <p class="note">출판 등록·검수, 서점 판매 개시와 종이책 배송 시점은 원고 완성도 및 유통사 심사·제작 일정에 따라 8주 수업 이후가 될 수 있습니다.</p>
+  </div></section>
+
+  <!-- FEE -->
+  <section class="section" id="fee"><div class="wrap">
+    <div class="smallcap">TUITION &amp; PUBLISHING PACKAGE</div>
+    <h2>수업에서 끝나지 않고, 출판으로 완성됩니다</h2>
+    <div class="fee-grid">
+      <div class="fee-box">
+        <h3>참가비 · 1인</h3>
+        <div class="price">1,000,000<small>원</small></div>
+        <p class="note">부가가치세 포함 · 카드결제 가능</p>
+        <div class="fee-row"><span>8주 수업료 (10만 원 × 8회)</span><b>800,000원</b></div>
+        <div class="fee-row"><span>출판 준비·제작 및 행정 패키지</span><b>200,000원</b></div>
+        <div class="fee-row"><span><strong>총 참가비</strong></span><strong>1,000,000원</strong></div>
+        <div class="included"><b>참가비에 포함되는 항목</b>
+          <ul data-noedit>
+            <li>총 16시간, 오경근 교수 직접 지도</li>
+            <li>나만의 집필 플랫폼 및 AI 글쓰기 지원</li>
+            <li>종이책·전자책 ISBN 2건 신청 실무 지원</li>
+            <li>편집·표지·출판 진행을 위한 제작·행정 지원</li>
+            <li>완성 후 나의 책 POD 종이책 1권 제공</li>
+          </ul>
+        </div>
+        <p class="note">ISBN 신청 지원과 출판 준비, 편집·행정·제작 지원 비용이 포함되어 있습니다.</p>
+      </div>
+      <div>
+        <div class="sidebox">
+          <div class="smallcap" style="color:#bcd9c7">A BOOK IN YOUR HANDS</div>
+          <h3>아이디어 한 조각이<br/>한 권의 책이 됩니다.</h3>
+          <p>누구나 자신의 생각을 책으로 남길 수 있습니다. 함께 쓰고, 다듬고, 출판합니다.</p>
+        </div>
+        <div class="info-rows">
+          <h3 style="font-size:20px;font-family:var(--serif);">과정 안내</h3>
+          <div class="fee-row"><span>수업 시간</span><b>하루 2시간</b></div>
+          <div class="fee-row"><span>교육 기간</span><b>총 8주 · 16시간</b></div>
+          <div class="fee-row"><span>지도 교수</span><b>오경근 교수</b></div>
+          <div class="fee-row" data-noedit><span>출판사</span><b><a href="https://goodseed-publishing.vercel.app/" target="_blank" rel="noopener noreferrer">굿씨드 출판사</a></b></div>
+          <div class="fee-row"><span>유통 목표</span><b>교보문고 전자책 및 POD</b></div>
+          <div class="fee-row"><span>개강일 · 교육장소</span><b>신청 시 별도 안내</b></div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- INSTRUCTOR -->
+  <section class="section instructor" id="instructor"><div class="wrap">
+    <div>
+      <div class="smallcap" style="color:#d5b399">DIRECTLY GUIDED BY</div>
+      <h2>오경근 교수 직접 지도</h2>
+      <div class="staffrole">서일대학교 IT학부 AI융합학과 특임교수</div>
+      <p>AI 기술과 사람의 생각을 연결하는 연구·교육 활동을 바탕으로, 아이디어를 꺼내는 단계에서부터 한 권의 책으로 발전시키는 글쓰기와 출판 전 과정을 지도합니다.</p>
+      <p>강사 소개 및 이력은 오른쪽 QR코드를 스캔하거나 아래 링크에서 확인할 수 있습니다.</p>
+    </div>
+    <div class="prof-qr" data-noedit>
+      <div class="smallcap">PROFESSOR PROFILE</div>
+      <b>오경근 교수<br/>이력 · 연구 · 저서</b>
+      <p>교수 홈페이지와 디지털 명함을 확인할 수 있습니다.</p>
+      <div class="prof-links">
+        <a href="https://ohkyoungkeun-soultech.vercel.app/" target="_blank" rel="noopener noreferrer">오경근 교수 이력·연구·저서 홈페이지</a>
+        <a href="https://ohkyoungkeun-namecard.vercel.app/" target="_blank" rel="noopener noreferrer">오경근 교수 디지털 명함 보기</a>
+      </div>
+      <div class="profile-qrs">
+        <a href="https://ohkyoungkeun-soultech.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="qr-professor.png" alt="오경근 교수 홈페이지 QR" width="120" height="120" /><small>교수 홈페이지 QR</small></a>
+        <a href="https://ohkyoungkeun-namecard.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="qr-namecard.png" alt="오경근 교수 디지털 명함 QR" width="120" height="120" /><small>디지털 명함 QR</small></a>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- ENROLL -->
+  <section class="section enroll" id="apply"><div class="wrap">
+    <div class="enrollpanel">
+      <div>
+        <div class="smallcap">YOUR IDEA DESERVES A BOOK</div>
+        <h2>이제, 나의 생각을<br/>한 권의 책으로.</h2>
+        <p>하루 2시간 · 8주 16시간<br/>개강일과 강의 장소는 상담 시 안내합니다.</p>
+        <p class="consult-phone" data-noedit>수강 상담 · 윈바신갈지역아동센터<br/><a href="tel:01099901894">010-9990-1894</a></p>
+        <div class="enrollctas" data-noedit>
+          <a href="https://open.kakao.com/o/g8X6BQZh" target="_blank" rel="noopener noreferrer" class="btn dark">카카오톡으로 수강 상담</a>
+          <button id="share-btn" type="button" class="btn outline">소개 링크 공유</button>
+        </div>
+        <p id="share-message" role="status" aria-live="polite"></p>
+      </div>
+      <div class="steps-visual" data-noedit>
+        <div class="bigbook">나의 아이디어가<br/>책이 되는 8주</div>
+      </div>
+    </div>
+  </div></section>
+
+</main>
+
+<footer data-noedit>
+  <div class="wrap">
+    <span>교육 지도 · 오경근 교수 | 출판 · <a href="https://goodseed-publishing.vercel.app/" target="_blank" rel="noopener noreferrer">굿씨드 출판사</a> | 후원사업 · 윈바아동센터</span>
+    <span>본 과정은 서일대학교의 공식 학위 또는 자격 취득 과정이 아닙니다. 출판은 교보문고 유통 절차에 따라 진행됩니다.</span>
+    <div class="footer-links">오경근 교수 · 이력 · 연구 · 저서 : <a href="https://ohkyoungkeun-soultech.vercel.app/" target="_blank" rel="noopener noreferrer">교수 홈페이지</a> | <a href="https://ohkyoungkeun-namecard.vercel.app/" target="_blank" rel="noopener noreferrer">디지털 명함</a> | <a href="https://goodseed-publishing.vercel.app/" target="_blank" rel="noopener noreferrer">굿씨드 출판사</a><br/>수강 상담 · 윈바신갈지역아동센터 <a href="tel:01099901894">010-9990-1894</a></div>
+    <span class="foot-note">ISBN 비용은 포함된 가격입니다.</span>
+  </div>
+</footer>
+</div><!-- /editable-root -->
+
+<button id="ed-fab">✏️ 편집</button>
+<div id="ed-bar"><button id="ed-save">💾 저장</button><button id="ed-export">⬇ 내보내기</button><button id="ed-reset">↺ 되돌리기</button><button id="ed-done">✓ 종료</button></div>
+<div class="modal" id="ed-modal"><div class="box"><div>편집 암호를 입력하세요</div><input type="password" id="ed-pw" autocomplete="off" /><div><button id="ed-ok">확인</button><button class="cancel" id="ed-cancel">취소</button></div></div></div>
+
+<script>
+// 공유 버튼
+(function(){var b=document.getElementById('share-btn');if(!b)return;b.addEventListener('click',async function(){var data={title:document.title,text:'생각과 아이디어만 있으면 한 권의 책이 됩니다 — 굿씨드 책쓰기 8주 과정',url:location.href};try{if(navigator.share){await navigator.share(data);}else{await navigator.clipboard.writeText(location.href);document.getElementById('share-message').textContent='소개 링크가 복사되었습니다.';}}catch(e){}});})();
+// 편집 모드
+(function(){var PW="332661",KEY="goodseed-book-edits-v1";var root=document.getElementById("editable-root");var fab=document.getElementById("ed-fab"),bar=document.getElementById("ed-bar"),modal=document.getElementById("ed-modal");var SEL="h1,h2,h3,p,li,div.bt,div.number,div.staffrole,div.smallcap";function blocks(){return Array.prototype.filter.call(root.querySelectorAll(SEL),function(el){if(el.closest("[data-noedit]"))return false;if(el.querySelector("h1,h2,h3,p,li,ul,ol,div,a,img"))return false;return true;});}try{var s=JSON.parse(localStorage.getItem(KEY)||"null");if(s){blocks().forEach(function(el,i){if(s[i]!=null)el.innerHTML=s[i];});}}catch(e){}function setEdit(on){document.body.classList.toggle("editing",on);blocks().forEach(function(el){if(on)el.setAttribute("contenteditable","true");else el.removeAttribute("contenteditable");});bar.style.display=on?"flex":"none";fab.textContent=on?"✏️ 편집 중":"✏️ 편집";}fab.onclick=function(){if(document.body.classList.contains("editing")){setEdit(false);return;}modal.style.display="flex";var i=document.getElementById("ed-pw");i.value="";i.focus();};document.getElementById("ed-cancel").onclick=function(){modal.style.display="none";};document.getElementById("ed-ok").onclick=function(){if(document.getElementById("ed-pw").value===PW){modal.style.display="none";setEdit(true);}else alert("암호가 올바르지 않습니다.");};document.getElementById("ed-pw").addEventListener("keydown",function(e){if(e.key==="Enter")document.getElementById("ed-ok").click();});document.getElementById("ed-save").onclick=function(){var d={};blocks().forEach(function(el,i){d[i]=el.innerHTML;});localStorage.setItem(KEY,JSON.stringify(d));alert("저장되었습니다(이 브라우저에 보관).");};document.getElementById("ed-done").onclick=function(){setEdit(false);};document.getElementById("ed-reset").onclick=function(){if(confirm("저장한 편집을 지우고 원래대로 되돌릴까요?")){localStorage.removeItem(KEY);location.reload();}};document.getElementById("ed-export").onclick=function(){setEdit(false);var c=document.documentElement.cloneNode(true);["ed-fab","ed-bar","ed-modal"].forEach(function(id){var n=c.querySelector("#"+id);if(n)n.remove();});var out="<!DOCTYPE html>\n"+c.outerHTML;var bl=new Blob([out],{type:"text/html;charset=utf-8"});var a=document.createElement("a");a.href=URL.createObjectURL(bl);a.download="굿씨드_책쓰기_8주과정(편집본).html";a.click();};})();
+</script>
+</body>
+</html>
