@@ -391,7 +391,7 @@ body.editing [contenteditable="true"]{outline:1.5px dashed var(--gold);backgroun
 </div><!-- /editable-root -->
 
 <button id="ed-fab">✏️ 편집</button>
-<div id="ed-bar"><button id="ed-save">💾 저장</button><button id="ed-export">⬇ 내보내기</button><button id="ed-reset">↺ 되돌리기</button><button id="ed-done">✓ 종료</button></div>
+<div id="ed-bar"><button id="ed-music">🎵 음악 링크</button><button id="ed-save">💾 저장</button><button id="ed-export">⬇ 내보내기</button><button id="ed-reset">↺ 되돌리기</button><button id="ed-done">✓ 종료</button></div>
 <div class="modal" id="ed-modal"><div class="box"><div>편집 암호를 입력하세요</div><input type="password" id="ed-pw" autocomplete="off" /><div><button id="ed-ok">확인</button><button class="cancel" id="ed-cancel">취소</button></div></div></div>
 
 <script>
@@ -403,27 +403,52 @@ body.editing [contenteditable="true"]{outline:1.5px dashed var(--gold);backgroun
 (function(){var PW="332661",KEY="goodseed-book-edits-v1";var root=document.getElementById("editable-root");var fab=document.getElementById("ed-fab"),bar=document.getElementById("ed-bar"),modal=document.getElementById("ed-modal");var SEL="h1,h2,h3,p,li,div.bt,div.number,div.staffrole,div.smallcap";function blocks(){return Array.prototype.filter.call(root.querySelectorAll(SEL),function(el){if(el.closest("[data-noedit]"))return false;if(el.querySelector("h1,h2,h3,p,li,ul,ol,div,a,img"))return false;return true;});}try{var s=JSON.parse(localStorage.getItem(KEY)||"null");if(s){blocks().forEach(function(el,i){if(s[i]!=null)el.innerHTML=s[i];});}}catch(e){}function setEdit(on){document.body.classList.toggle("editing",on);blocks().forEach(function(el){if(on)el.setAttribute("contenteditable","true");else el.removeAttribute("contenteditable");});bar.style.display=on?"flex":"none";fab.textContent=on?"✏️ 편집 중":"✏️ 편집";}fab.onclick=function(){if(document.body.classList.contains("editing")){setEdit(false);return;}modal.style.display="flex";var i=document.getElementById("ed-pw");i.value="";i.focus();};document.getElementById("ed-cancel").onclick=function(){modal.style.display="none";};document.getElementById("ed-ok").onclick=function(){if(document.getElementById("ed-pw").value===PW){modal.style.display="none";setEdit(true);}else alert("암호가 올바르지 않습니다.");};document.getElementById("ed-pw").addEventListener("keydown",function(e){if(e.key==="Enter")document.getElementById("ed-ok").click();});document.getElementById("ed-save").onclick=function(){var d={};blocks().forEach(function(el,i){d[i]=el.innerHTML;});localStorage.setItem(KEY,JSON.stringify(d));alert("저장되었습니다(이 브라우저에 보관).");};document.getElementById("ed-done").onclick=function(){setEdit(false);};document.getElementById("ed-reset").onclick=function(){if(confirm("저장한 편집을 지우고 원래대로 되돌릴까요?")){localStorage.removeItem(KEY);location.reload();}};document.getElementById("ed-export").onclick=function(){setEdit(false);var c=document.documentElement.cloneNode(true);["ed-fab","ed-bar","ed-modal"].forEach(function(id){var n=c.querySelector("#"+id);if(n)n.remove();});var out="<!DOCTYPE html>\n"+c.outerHTML;var bl=new Blob([out],{type:"text/html;charset=utf-8"});var a=document.createElement("a");a.href=URL.createObjectURL(bl);a.download="굿씨드_책쓰기_8주과정(편집본).html";a.click();};})();
 </script>
 <!-- 배경 음악 (YouTube) -->
-<div id="yt-music" aria-hidden="true" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"></div>
+<div id="yt-music" data-video="jw47ANVkMTs" aria-hidden="true" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"></div>
 <button id="music-toggle" aria-label="배경 음악 켜기/끄기" style="position:fixed;left:18px;bottom:18px;z-index:70;background:#9e2a2b;color:#fff;border:none;border-radius:30px;padding:11px 17px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 5px 16px rgba(0,0,0,.25);">🎵 음악 켜기</button>
 <script>
 (function(){
-  var player, soundOn=false, btn=document.getElementById('music-toggle');
+  var YT_DEFAULT='jw47ANVkMTs', LS='goodseed-book-music';
+  var holder=document.getElementById('yt-music');
+  var btn=document.getElementById('music-toggle');
+  var player, soundOn=false, apiReady=false;
+  function savedId(){ try{return localStorage.getItem(LS)||'';}catch(e){return '';} }
+  function currentId(){ return savedId() || holder.getAttribute('data-video') || YT_DEFAULT; }
+  function parseId(s){ s=(s||'').trim();
+    if(/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
+    var m=s.match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([A-Za-z0-9_-]{11})/);
+    return m ? m[1] : ''; }
   function setBtn(){ btn.textContent = soundOn ? '🔊 음악 끄기' : '🎵 음악 켜기'; }
-  function enable(){ if(!player||!player.unMute)return; try{player.unMute();player.setVolume(42);player.playVideo();}catch(e){} soundOn=true; setBtn(); }
-  function disable(){ if(!player||!player.mute)return; try{player.mute();}catch(e){} soundOn=false; setBtn(); }
-  window.onYouTubeIframeAPIReady=function(){
+  function enable(){ if(player&&player.unMute){try{player.unMute();player.setVolume(42);player.playVideo();}catch(e){}} soundOn=true; setBtn(); }
+  function disable(){ if(player&&player.mute){try{player.mute();}catch(e){}} soundOn=false; setBtn(); }
+  function create(id){
+    if(!apiReady) return;
+    if(player&&player.destroy){ try{player.destroy();}catch(e){} }
     player=new YT.Player('yt-music',{
-      videoId:'jw47ANVkMTs',
-      playerVars:{autoplay:1,loop:1,playlist:'jw47ANVkMTs',controls:0,playsinline:1,rel:0},
-      events:{onReady:function(e){ try{e.target.mute(); e.target.setVolume(42); e.target.playVideo(); }catch(_){} }}
+      videoId:id,
+      playerVars:{autoplay:1,loop:1,playlist:id,controls:0,playsinline:1,rel:0},
+      events:{onReady:function(e){ try{ e.target.setVolume(42); if(soundOn){e.target.unMute();}else{e.target.mute();} e.target.playVideo(); }catch(_){} }}
     });
-  };
+  }
+  window.onYouTubeIframeAPIReady=function(){ apiReady=true; create(currentId()); };
   var tag=document.createElement('script'); tag.src="https://www.youtube.com/iframe_api"; document.head.appendChild(tag);
-  // 첫 상호작용(터치/클릭) 시 소리 자동 켜기 — 브라우저 자동재생 정책 우회
-  document.addEventListener('pointerdown', function onFirst(){ enable(); }, {once:true});
-  // 버튼은 자체 토글 (첫상호작용 핸들러로 전파 차단)
+  // 첫 상호작용(터치/클릭) 시 소리 자동 켜기
+  document.addEventListener('pointerdown', function(){ enable(); }, {once:true});
   btn.addEventListener('pointerdown', function(e){ e.stopPropagation(); });
-  btn.addEventListener('click', function(){ if(soundOn) disable(); else enable(); });
+  btn.addEventListener('click', function(){ soundOn?disable():enable(); });
+  // 편집모드 "음악 링크" 버튼 → 유튜브 링크 교체
+  function changeMusic(){
+    var cur=currentId();
+    var url=prompt('배경 음악으로 쓸 유튜브 링크(또는 영상 ID)를 붙여넣으세요.\n예) https://youtu.be/XXXXXXXXXXX', cur);
+    if(url===null) return;
+    var id=parseId(url);
+    if(!id){ alert('유튜브 링크/ID를 인식하지 못했습니다. 주소를 다시 확인해 주세요.'); return; }
+    try{ localStorage.setItem(LS, id); }catch(e){}
+    holder.setAttribute('data-video', id);     // 내보내기 파일에 반영되도록 DOM에도 기록
+    soundOn=true; setBtn(); create(id);
+    alert('배경 음악이 변경되었습니다. ♪\n(모두에게 적용하려면 편집을 종료하고 "내보내기"한 파일을 배포하세요.)');
+  }
+  var mb=document.getElementById('ed-music');
+  if(mb){ mb.addEventListener('click', changeMusic); }
 })();
 </script>
 </body>
