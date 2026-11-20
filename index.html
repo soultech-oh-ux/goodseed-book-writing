@@ -410,7 +410,7 @@ body.editing [contenteditable="true"]{outline:1.5px dashed var(--gold);backgroun
   var YT_DEFAULT='jw47ANVkMTs', LS='goodseed-book-music';
   var holder=document.getElementById('yt-music');
   var btn=document.getElementById('music-toggle');
-  var player, soundOn=false, apiReady=false;
+  var player, soundOn=true, userOff=false, apiReady=false;
   function savedId(){ try{return localStorage.getItem(LS)||'';}catch(e){return '';} }
   function currentId(){ return savedId() || holder.getAttribute('data-video') || YT_DEFAULT; }
   function parseId(s){ s=(s||'').trim();
@@ -431,10 +431,12 @@ body.editing [contenteditable="true"]{outline:1.5px dashed var(--gold);backgroun
   }
   window.onYouTubeIframeAPIReady=function(){ apiReady=true; create(currentId()); };
   var tag=document.createElement('script'); tag.src="https://www.youtube.com/iframe_api"; document.head.appendChild(tag);
-  // 첫 상호작용(터치/클릭) 시 소리 자동 켜기
-  document.addEventListener('pointerdown', function(){ enable(); }, {once:true});
+  setBtn(); // 열릴 때 음악 ON 의도
+  var EVS=['pointerdown','touchstart','keydown'];
+  function kick(){ if(userOff) return; enable(); EVS.forEach(function(ev){ window.removeEventListener(ev,kick); }); }
+  EVS.forEach(function(ev){ window.addEventListener(ev,kick,{passive:true}); });
   btn.addEventListener('pointerdown', function(e){ e.stopPropagation(); });
-  btn.addEventListener('click', function(){ soundOn?disable():enable(); });
+  btn.addEventListener('click', function(){ if(soundOn){ userOff=true; disable(); } else { userOff=false; enable(); } });
   // 편집모드 "음악 링크" 버튼 → 유튜브 링크 교체
   function changeMusic(){
     var cur=currentId();
